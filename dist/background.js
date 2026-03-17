@@ -7,6 +7,11 @@ chrome.runtime.onInstalled.addListener(() => {
   });
 });
 
+// ── Extension icon click — open new tab ────────────────────
+chrome.action.onClicked.addListener(() => {
+  chrome.tabs.create({ url: "https://jsoncraft-red.vercel.app" });
+});
+
 // ── Context menu click ─────────────────────────────────────
 chrome.contextMenus.onClicked.addListener((info, tab) => {
   if (info.menuItemId === "jsoncraft-open" && info.selectionText) {
