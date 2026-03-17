@@ -96,7 +96,13 @@ export default function App() {
     });
   };
 
-  const openFull = () => window.open("https://jsoncraft-red.vercel.app", "_blank");
+  const openFull = () => {
+    if (chrome?.tabs?.create) {
+      chrome.tabs.create({ url: "https://jsoncraft-red.vercel.app" });
+    } else {
+      window.open("https://jsoncraft-red.vercel.app", "_blank");
+    }
+  };
 
   // Theme
   const T = {
